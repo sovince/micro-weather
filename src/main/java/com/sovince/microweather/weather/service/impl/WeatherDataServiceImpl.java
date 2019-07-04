@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by vince
@@ -45,8 +46,10 @@ public class WeatherDataServiceImpl implements WeatherDataService {
         return doGetWeather(uri);
     }
 
+
+
     private WeatherResponse doGetWeather(String uri) {
-        String key = "weather:"+uri;
+        String key = genarateKey(uri);
         //redis crud句柄
         ValueOperations<String, String> ops = stringRedisTemplate.opsForValue();
         WeatherResponse weatherResponse = null;
@@ -56,11 +59,8 @@ public class WeatherDataServiceImpl implements WeatherDataService {
             body = ops.get(key);
         }else{
             logger.info("Getting data from uri...");
-            ResponseEntity<String> entity = restTemplate.getForEntity(uri, String.class);//不能直接转pojo?
-            if (entity.getStatusCodeValue() == 200) {
-                body = entity.getBody();
-            }
-            ops.set(key,body);
+            body = getBodyFromUri(uri);
+            ops.set(key,body,1800, TimeUnit.SECONDS);
         }
 
         if(body!=null){
@@ -72,8 +72,38 @@ public class WeatherDataServiceImpl implements WeatherDataService {
             }
         }
 
-
-
         return weatherResponse;
+    }
+
+
+    @Override
+    public void syncDataByCityName(String cityName) {
+        String uri = WEATHER_URI + "?city=" + cityName;
+        saveWeatherData(uri);
+    }
+
+    /**
+     * 数据存入redis
+     * @param uri
+     */
+    private void saveWeatherData(String uri){
+        String key = genarateKey(uri);
+        //redis crud句柄
+        ValueOperations<String, String> ops = stringRedisTemplate.opsForValue();
+        String body = getBodyFromUri(uri);
+        ops.set(key,body);
+    }
+
+    private String getBodyFromUri(String uri){
+        String body = null;
+        ResponseEntity<String> entity = restTemplate.getForEntity(uri, String.class);//不能直接转pojo?
+        if (entity.getStatusCodeValue() == 200) {
+            body = entity.getBody();
+        }
+        return body;
+    }
+
+    private String genarateKey(String uri){
+        return "weather:"+uri;
     }
 }

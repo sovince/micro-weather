@@ -25,4 +25,10 @@ public interface WeatherDataService {
     WeatherResponse getDataByCityName(String cityName);
 
 
+    /**
+     * 同步天气数据
+     * @param cityName
+     */
+    void syncDataByCityName(String cityName);
+
 }
