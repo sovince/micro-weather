@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>weather report</title>
+</head>
+<body>
+<h3>weather report</h3>
+<select>
+    <option th:each="city:${cityList}"
+            th:value="${city.cityname}"
+            th:text="${city.cityname}"
+            th:selected="${city.cityname} == ${cityName}"
+    ></option>
+</select>
+<h1 th:text="${report.city}"></h1>
+<p>
+    当前温度：<span th:text="${report.wendu}"></span>
+</p>
+<div th:each="forecast:${report.forecast}">
+    <div>
+        <p th:text="${forecast.date}"></p>
+        <p th:text="${forecast.fengxiang}"></p>
+        <p th:text="${forecast.type}"></p>
+        <p th:text="${forecast.high}"></p>
+        <p th:text="${forecast.low}"></p>
+    </div>
+
+</div>
+</body>
+</html>

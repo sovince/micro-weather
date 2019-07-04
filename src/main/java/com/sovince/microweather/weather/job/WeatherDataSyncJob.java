@@ -39,7 +39,7 @@ public class WeatherDataSyncJob extends QuartzJobBean {
         }
         for (City city:cityList){
             logger.info("Weather Data Sync Job,cityName:"+city.getCityname());
-            weatherDataService.syncDataByCityName(city.getCityname());
+//            weatherDataService.syncDataByCityName(city.getCityname());//频繁测试启动 需要优化
         }
     }
 }
