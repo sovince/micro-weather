@@ -44,4 +44,13 @@ public class WeatherResponse {
     public void setDesc(String desc) {
         this.desc = desc;
     }
+
+    @Override
+    public String toString() {
+        return "WeatherResponse{" +
+                "data=" + data +
+                ", status=" + status +
+                ", desc='" + desc + '\'' +
+                '}';
+    }
 }

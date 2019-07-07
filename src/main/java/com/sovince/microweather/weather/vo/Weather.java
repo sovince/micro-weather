@@ -129,4 +129,15 @@ public class Weather implements Serializable {
     public void setForecast(List<Forecast> forecast) {
         this.forecast = forecast;
     }
+
+    @Override
+    public String toString() {
+        return "Weather{" +
+                "city='" + city + '\'' +
+                ", ganmao='" + ganmao + '\'' +
+                ", wendu='" + wendu + '\'' +
+                ", yesterday=" + yesterday +
+                ", forecast=" + forecast +
+                '}';
+    }
 }

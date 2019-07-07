@@ -31,6 +31,7 @@ public class WeatherReportController {
 
     @GetMapping("/cityName/{cityName}")
     public String getReportByCityName(@PathVariable String cityName, Model model) throws Exception {
+        //部分城市查询结果是null
         Weather report = weatherReportService.getDataByCityName(cityName);
         List<City> cityList = cityDataService.listCity();
 

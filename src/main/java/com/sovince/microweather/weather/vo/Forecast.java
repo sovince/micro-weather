@@ -82,4 +82,16 @@ public class Forecast implements Serializable {
     public void setType(String type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return "Forecast{" +
+                "date='" + date + '\'' +
+                ", high='" + high + '\'' +
+                ", fengli='" + fengli + '\'' +
+                ", low='" + low + '\'' +
+                ", fengxiang='" + fengxiang + '\'' +
+                ", type='" + type + '\'' +
+                '}';
+    }
 }

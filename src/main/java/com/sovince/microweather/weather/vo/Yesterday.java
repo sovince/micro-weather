@@ -84,4 +84,16 @@ public class Yesterday implements Serializable {
     public void setType(String type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return "Yesterday{" +
+                "date='" + date + '\'' +
+                ", high='" + high + '\'' +
+                ", fx='" + fx + '\'' +
+                ", low='" + low + '\'' +
+                ", fl='" + fl + '\'' +
+                ", type='" + type + '\'' +
+                '}';
+    }
 }
