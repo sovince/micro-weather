@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/index")
 public class IndexController {
-    @GetMapping("/index")
+    @GetMapping("index")
     public String index(){
         return "Hello Spring Cloud!";
     }
