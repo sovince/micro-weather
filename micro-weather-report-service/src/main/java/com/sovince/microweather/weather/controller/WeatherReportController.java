@@ -1,6 +1,6 @@
 package com.sovince.microweather.weather.controller;
 
-import com.sovince.microweather.weather.service.CityDataClient;
+import com.sovince.microweather.weather.service.DataZuulClient;
 import com.sovince.microweather.weather.service.WeatherReportService;
 import com.sovince.microweather.weather.vo.City;
 import com.sovince.microweather.weather.vo.Weather;
@@ -26,14 +26,17 @@ public class WeatherReportController {
     @Autowired
     private WeatherReportService weatherReportService;
 
+//    @Autowired
+//    private CityDataClient cityDataClient;//不用了
+
     @Autowired
-    private CityDataClient cityDataClient;
+    private DataZuulClient dataZuulClient;
 
     @GetMapping("/cityName/{cityName}")
     public String getReportByCityName(@PathVariable String cityName, Model model) throws Exception {
         //部分城市查询结果是null
         Weather report = weatherReportService.getDataByCityName(cityName);
-        List<City> cityList = cityDataClient.cityList();
+        List<City> cityList = dataZuulClient.cityList();
 
         model.addAttribute("cityName",cityName);
         model.addAttribute("cityList",cityList);

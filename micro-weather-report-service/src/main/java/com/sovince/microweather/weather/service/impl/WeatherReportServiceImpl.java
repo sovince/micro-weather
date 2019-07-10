@@ -1,5 +1,6 @@
 package com.sovince.microweather.weather.service.impl;
 
+import com.sovince.microweather.weather.service.DataZuulClient;
 import com.sovince.microweather.weather.service.WeatherDataClient;
 import com.sovince.microweather.weather.service.WeatherReportService;
 import com.sovince.microweather.weather.vo.Weather;
@@ -19,12 +20,16 @@ public class WeatherReportServiceImpl implements WeatherReportService {
 
 //    @Autowired
 //    private WeatherDataService weatherDataService;
+
+//    @Autowired
+//    private WeatherDataClient weatherDataClient;//不用了
+
     @Autowired
-    private WeatherDataClient weatherDataClient;
+    private DataZuulClient dataZuulClient;
 
     @Override
     public Weather getDataByCityName(String cityName) {
-        WeatherResponse dataByCityName = weatherDataClient.getWeaherByCityName(cityName);
+        WeatherResponse dataByCityName = dataZuulClient.getWeaherByCityName(cityName);
         return dataByCityName.getData();
     }
 }

@@ -14,6 +14,11 @@ import java.util.List;
  * Time: 19:42
  * Description:
  */
+
+/**
+ * 改用zuul接口 DataZuulClient
+ */
+@Deprecated
 @FeignClient("micro-weather-city-service")
 @Service
 public interface CityDataClient {
