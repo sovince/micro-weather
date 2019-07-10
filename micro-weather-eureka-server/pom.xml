@@ -10,9 +10,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.sovince</groupId>
-    <artifactId>micro-weather</artifactId>
+    <artifactId>micro-weather-eureka-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>micro-weather</name>
+    <name>micro-weather-eureka-server</name>
     <description>micro weather -- spring cloud</description>
 
     <properties>

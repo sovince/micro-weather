@@ -10,9 +10,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.sovince</groupId>
-    <artifactId>micro-weather</artifactId>
+    <artifactId>micro-weather-eureka-client</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>micro-weather</name>
+    <name>micro-weather-eureka-client</name>
     <description>micro weather -- spring cloud</description>
 
     <properties>
@@ -34,7 +34,7 @@
 
         <!-- *****cloud依赖***** -->
 
-         <!--1.eureka服务注册发现-->
+        <!--1.eureka服务注册发现-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
