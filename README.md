@@ -3,7 +3,7 @@
 
 Introduction to Spring Cloud by a micro-project
 
-## 子项目
+## 主要子项目
 0. **micro-weather-single** 单一结构的天气预报项目，由此拆分微服务
 1. **micro-weather-eureka-server** 服务注册发现
 2. **micro-weather-city-service** 提供**城市列表服务**（接口）
@@ -11,7 +11,12 @@ Introduction to Spring Cloud by a micro-project
 4. **micro-weather-data-service** 提供**天气数据服务**（接口），即从redis查询采集的数据
 5. **micro-weather-report-service** 天气预报展示，依赖于**城市列表服务**和**天气数据服务**，通过zuul获取两个服务数据
 6. **micro-weather-eureka-client-zuul** 作为网关，聚合**城市列表服务**和**天气数据服务**的请求入口
-7. **micro-weather-config-server** 项目的配置中心，coding...
+
+
+---
+## 次要子项目
+
+7. **micro-weather-config-server** 项目的配置中心
 8. **micro-weather-eureka-client** 测试服务发现、配置中心读取、Feign...，
 
 ## 启动
@@ -38,6 +43,9 @@ java -jar micro-weather-eureka-client-zuul/target/micro-weather-eureka-client-zu
 ## 天气预报展示服务 依赖于 城市数据服务和天气数据提供服务,zuul
 java -jar micro-weather-report-service/target/micro-weather-report-service-0.0.1-SNAPSHOT.jar --server.port=10007
 java -jar micro-weather-report-service/target/micro-weather-report-service-0.0.1-SNAPSHOT.jar --server.port=10008
+
+## 配置中心，集中管理配置，仅测试和天气项目无关，可不启动
+java -jar micro-weather-config-server/target/micro-weather-config-server-0.0.1-SNAPSHOT.jar
 ```
 
 访问
