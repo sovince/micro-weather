@@ -1,5 +1,6 @@
 package com.sovince.microweather.weather.service;
 
+import com.sovince.microweather.weather.service.impl.DataZuulClientFallback;
 import com.sovince.microweather.weather.vo.City;
 import com.sovince.microweather.weather.vo.WeatherResponse;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -17,7 +18,7 @@ import java.util.List;
  * Description:
  */
 @Service
-@FeignClient("micro-weather-eureka-client-zuul")
+@FeignClient(name="micro-weather-eureka-client-zuul",fallback= DataZuulClientFallback.class)
 public interface DataZuulClient {
 
     /**
