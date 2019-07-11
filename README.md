@@ -55,8 +55,8 @@ java -jar micro-weather-config-server/target/micro-weather-config-server-0.0.1-S
 http://localhost:10007/report/cityName/香港
 ```
 
-![](http://image.sovince.com/20190711/weather-report-normal.png)
+![图片](http://image.sovince.com/20190711/weather-report-normal.png)
 
 #### 停止城市数据服务和天气数据数据服务
 
-![](http://image.sovince.com/20190711/weather-report-break.png)
+![图片](http://image.sovince.com/20190711/weather-report-break.png)
