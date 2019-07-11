@@ -3,6 +3,8 @@
 
 Introduction to Spring Cloud by a micro-project
 
+[测试链接 http://weather.sovince.com/report/cityName/杭州](http://weather.sovince.com/report/cityName/%E6%9D%AD%E5%B7%9E)
+
 ## 主要子项目
 0. **micro-weather-single** 单一结构的天气预报项目，由此拆分微服务
 1. **micro-weather-eureka-server** 服务注册发现
