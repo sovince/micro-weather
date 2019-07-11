@@ -10,15 +10,28 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.sovince</groupId>
-    <artifactId>micro-weather-eureka-client</artifactId>
+    <artifactId>micro-weather-config-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>micro-weather-eureka-client</name>
+    <name>micro-weather-config-server</name>
     <description>micro weather -- spring cloud</description>
 
     <properties>
         <java.version>1.8</java.version>
         <springCloud.version>Finchley.SR2</springCloud.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Spring Cloud 依赖管理 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${springCloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
@@ -40,31 +53,14 @@
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
-        <!--2.客户端发现代理集成ribbon-->
+        <!--4.spring-cloud-config-server-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
-
-        <!--2.config-client-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-config-client</artifactId>
+            <artifactId>spring-cloud-config-server</artifactId>
         </dependency>
 
     </dependencies>
-    <dependencyManagement>
-        <dependencies>
-            <!-- Spring Cloud 依赖管理 -->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${springCloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+
 
     <build>
         <plugins>
