@@ -32,6 +32,12 @@
             <scope>test</scope>
         </dependency>
 
+        <!--检测模块-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
         <!-- *****cloud依赖***** -->
 
         <!--1.eureka服务注册发现-->
