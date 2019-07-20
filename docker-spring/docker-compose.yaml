@@ -1,0 +1,28 @@
+version: '3'
+services:
+  eureka-server:
+    restart: always
+    build: ./micro-weather-eureka-server-docker
+    working_dir: /micro-weather-eureka-server-docker
+    volumes:
+      - ./micro-weather-eureka-server-docker:/micro-weather-eureka-server-docker
+      - ~/.m2:/root/.m2
+    ports:
+      - "8761:8761"
+    expose:
+      - "8761"
+    command: mvn clean spring-boot:run -Dspring-boot.run.profiles=docker
+  eureka-client:
+    restart: always
+    build: ./micro-weather-eureka-client-docker
+    working_dir: /micro-weather-eureka-client-docker
+    volumes:
+      - ./micro-weather-eureka-client-docker:/micro-weather-eureka-client-docker
+      - ~/.m2:/root/.m2
+    ports:
+      - "8080:8080"
+    expose:
+      - "8080"
+    depends_on:
+      - eureka-server
+    command: mvn clean spring-boot:run -Dspring-boot.run.profiles=docker
