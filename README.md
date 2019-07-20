@@ -13,14 +13,14 @@ Introduction to Spring Cloud by a micro-project
 4. **micro-weather-data-service** 提供**天气数据服务**（接口），即从redis查询采集的数据
 5. **micro-weather-report-service** 天气预报展示，依赖于**城市列表服务**和**天气数据服务**，通过zuul获取两个服务数据
 6. **micro-weather-eureka-client-zuul** 作为网关，聚合**城市列表服务**和**天气数据服务**的请求入口
-7. **docker-spring** 容器编排测试例子
+
 
 ---
 ## 次要子项目
 
 7. **micro-weather-config-server** 项目的配置中心
 8. **micro-weather-eureka-client** 测试服务发现、配置中心读取、Feign...，
-
+9. **docker-spring** 容器编排测试例子
 ## 启动
 ```
 ## 服务注册发现
